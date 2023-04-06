@@ -42,14 +42,41 @@ public class Stack {
     public boolean isEmpty(){
         return top == - 1;
     }
+
+    //peek the top element
+    public int peek(){
+        return arr[top];
+    }
+
+    //print stack
+    public void printStack(){
+        if (!isEmpty()){
+            for (int i=0; i<=top; i++){
+                System.out.print(arr[i]+" ");
+            }
+            System.out.println();
+        }else {
+            System.out.println("Array is empty!!");
+        }
+
+    }
     public static void main(String[] args) {
 
         Stack stack = new Stack(3);
         stack.push(5);
         stack.push(2);
         stack.push(1);
-        stack.push(9);
 
+        System.out.println("Element at top of stack: "+stack.peek());
+
+        stack.printStack();
+
+        while (!stack.isEmpty()){
+            int data = stack.pop();
+            System.out.println("Removed from stack: "+data);
+        }
+
+        stack.printStack();
 
     }
 }
