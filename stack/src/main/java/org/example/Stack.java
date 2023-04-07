@@ -18,7 +18,6 @@ public class Stack {
 
         if(isFull()){
             System.out.println("Stack is Full!!");
-            System.exit(1);
         }
         System.out.println("Inserted "+x);
         arr[++top] = x;
@@ -28,7 +27,6 @@ public class Stack {
     public int pop(){
         if(isEmpty()){
             System.out.println("Stack is empty");
-            System.exit(1);
         }
         return arr[top--];
     }
