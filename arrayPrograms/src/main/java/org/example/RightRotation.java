@@ -2,21 +2,21 @@ package org.example;
 
 import static org.example.ReverseArray.printArray;
 
-/*  T.C is O(N) & A.S is O(N) */
-public class LeftRotation {
+/*  T.C is O(N) & A.S is O(1) */
+public class RightRotation {
 
-    static void rotate(int arr[], int d, int n){
+    static void rotateRight(int arr[], int d, int n){
         int temp[] = new int[n];
 
         int k = 0;      //to keep track of current index
 
         //sorting d to n-1 elements
-        for(int i=d; i < n; i++){
+        for(int i=d+1; i < n; i++){
             temp[k] = arr[i];
             k++;
         }
         //sorting 0 to d-1 elements
-        for(int i=0; i < d; i++){
+        for(int i=0; i <= d; i++){
             temp[k] = arr[i];
             k++;
         }
@@ -26,18 +26,16 @@ public class LeftRotation {
             arr[i] = temp[i];
         }
     }
-
     public static void main(String[] args) {
-
-        int arr[] = {5,8,3,6,2,9};
+        int arr[] = {1, 3, 5, 7, 9};
         int n = arr.length;
-        int d = 3;   //position from where we want to rotate array
+        int d = 2;   //position from where we want to rotate array
 
         System.out.println("Original Array:");
         printArray(arr,n);
-        System.out.println("Array left rotation by " +d+ " position: ");
-        rotate(arr, d,n);
+        System.out.println("Array right rotation by " +d+ " position: ");
+        rotateRight(arr, d,n);
         printArray(arr, n);
-
     }
+
 }
